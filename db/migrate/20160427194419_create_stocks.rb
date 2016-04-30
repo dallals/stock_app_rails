@@ -4,8 +4,9 @@ class CreateStocks < ActiveRecord::Migration
       t.string :ticker
       t.string :name
       t.decimal :last_price
-
+      # t.references :user, index: true
       t.timestamps null: false
     end
   end
 end
+ 
