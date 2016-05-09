@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
   has_many :friends, through: :friendships
 
 
-
   def can_add_stock?(ticker_symbol)
   	under_stock_limit? && !stock_already_added?(ticker_symbol)
   end

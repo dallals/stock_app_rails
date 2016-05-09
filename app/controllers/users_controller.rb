@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   def my_portfolio
   	@user_stocks = current_user.stocks
+  	puts "user stocks"
+  	puts @user_stocks
   	@user = current_user
   end
 
@@ -10,9 +12,9 @@ class UsersController < ApplicationController
   end
 
   def search
-  	@user = User.search(params[:search_param])
-
-  	if @users 
+  	@users = User.search(params[:search_param])
+  	puts @users
+  	if @users
   		@users = current_user.except_current_user(@users)
   		render partial: "friends/lookup"
   	else
