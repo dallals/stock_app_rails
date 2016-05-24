@@ -1,2 +1,9 @@
 <h1 align="center">Welcome to the Finance Traker App</h1>
 
+<% if current_user %>
+
+<%= render 'stocks/lookup' %>
+
+<%= render 'stocks/list' %>
+
+<%end%>
