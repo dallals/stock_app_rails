@@ -9,6 +9,7 @@ class UserStocksController < ApplicationController
   end
 
   def show
+    @user_stock = UserStock.find(params[:id])
     respond_with(@user_stock)
   end
 

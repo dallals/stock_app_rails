@@ -31,3 +31,5 @@ $(document).ready(function(){
 	init_stock_lookup();
 
 });
+
+

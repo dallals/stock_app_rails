@@ -1,5 +1,5 @@
 class StocksController < ApplicationController
-
+before_action :show_stock, only: [:show]
 
 	def search
 		if params[:stock]
@@ -18,6 +18,16 @@ class StocksController < ApplicationController
 
 	end
 
+	def show
+		
+	end
+
+
+	private
+
+	def show_stock
+		@stock = Stock.find(params[:id])
+	end
 
 
 end

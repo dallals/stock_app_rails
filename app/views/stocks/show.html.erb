@@ -1,17 +1,12 @@
 <script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @user_stock.user_id %>
-</p>
+        
 
         <script type="text/javascript">
+        var stock = '<%= @stock.ticker %>'
         new TradingView.widget({
-          "width": 980,
+          "width": 1080,
           "height": 610,
-          "symbol": "#{@user_stock.ticker}",
+          "symbol": stock,
           "interval": "D",
           "timezone": "Etc/UTC",
           "theme": "White",
@@ -27,10 +22,6 @@
         });
         </script>
         <!-- TradingView Widget END -->
-
-<p>
-  <strong>Stock:</strong>
-  <%= @user_stock.stock_id %>
-</p>
-
-
+        <div style="margin-top: 10px;">
+        <%= link_to 'back to my portfolio', my_portfolio_path, :class => 'btn btn-xs btn-primary btn active' %> 
+        </div>

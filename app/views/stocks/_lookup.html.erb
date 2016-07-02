@@ -1,6 +1,5 @@
 
-
-
+<script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
 <div id="stock-lookup">
   <h3>Search for Stocks</h3>
   <%= form_tag search_stocks_path, remote: true, method: :get, id: 'stock-lookup-form' do %>
@@ -22,6 +21,7 @@
       <strong>Symbol:</strong> <%= @stock.ticker %>
       <strong>Name:</strong> <%= @stock.name %>
       <strong>Price:</strong> <%= @stock.price %>
+            <!-- TradingView Widget BEGIN -->
       <% if current_user.can_add_stock?(@stock.ticker) %>
         <%= link_to "Add to my Stocks", user_stocks_path(user: current_user, stock_ticker: @stock.ticker,
                 stock_id: @stock.id ? @stock.id : ''), class: 'btn btn-xs btn-success', method: :post %>
@@ -37,6 +37,26 @@
         </span>
       <% end %>
     </div>
+          <script type="text/javascript">
+        new TradingView.widget({
+          "width": 980,
+          "height": 610,
+          "symbol": "aapl",
+          "interval": "D",
+          "timezone": "Etc/UTC",
+          "theme": "White",
+          "style": "1",
+          "locale": "en",
+          "toolbar_bg": "#f1f3f6",
+          "allow_symbol_change": true,
+          "hideideas": true,
+          "show_popup_button": true,
+          "popup_width": "1000",
+          "popup_height": "650",
+          "no_referral_id": true
+        });
+        </script>
+        <!-- TradingView Widget END -->
   <% end %>
   <div id="stock-lookup-errors"></div>
 </div>
