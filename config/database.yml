@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
   pool: 5
   timeout: 5000
 
@@ -13,6 +13,13 @@ development:
   <<: *default
   database: db/development.sqlite3
   username: ubuntu
+
+  # deveplopment:
+  # adapter: postgresql
+  # encoding: unicode
+  # database: myapp_development
+  # pool: 5
+  # password:
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
