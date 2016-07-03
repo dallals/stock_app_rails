@@ -1,6 +1,6 @@
 class UserStocksController < ApplicationController
-  before_action :set_user_stock, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_user_stock, only: [:show, :edit, :update]
+  before_action :delete_stock, only: [:destroy]
   respond_to :html
 
   def index
@@ -61,7 +61,7 @@ class UserStocksController < ApplicationController
   end
 
   def destroy
-    @user_stock.destroy
+    @user_stock.destroy_all
     flash[:success] = "User Stock was removed from portfolio"
     redirect_to my_portfolio_path
   end
@@ -70,6 +70,11 @@ class UserStocksController < ApplicationController
     def set_user_stock
       @user_stock = UserStock.find(params[:id])
     end
+
+    def delete_stock
+      @user_stock = UserStock.where(user_id: current_user.id, stock_id: params[:id])
+    end
+
 
     def user_stock_params
       params.require(:user_stock).permit(:user_id, :stock_id)

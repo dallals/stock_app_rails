@@ -1,5 +1,6 @@
 <%= render 'friends/lookup'%>
 
+<div id="container">
 <%if @friendships.size > 0 %>
 <% else %>
 <div class='row col-lg-12'>
@@ -15,16 +16,13 @@
 			</tr>
 			<tr>		
 				<th>email</th>
-				<th>Actions</th>
-				
+				<th>Actions</th>			
 			</tr>		
 		</thead>
 		<tbody>
-			
 			<% @friendships.each do |friend|%>
 			<tr>
-				<td><%= friend.email %></td>
-				
+				<td><%= friend.email %></td>	
 				<td>
 				<%= link_to "View Profile", user_path(friend), class:"btn btn-primary btn-xs" %>
 				<%= link_to "Unfriend", friendship_path(friend),
@@ -34,7 +32,8 @@
 			</tr>
 			<% end %>
 		</tbody>
-	</table>							
+	</table>	
+</div>							
 
 
 		
