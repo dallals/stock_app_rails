@@ -1,4 +1,6 @@
-<h1 align="center">Welcome to the Finance Traker App</h1>
+
+<div id="container">
+<h1 align="center">Welcome to Your Finance Tracker</h1>
 
 <% if current_user %>
 
@@ -6,4 +8,33 @@
 
 <%= render 'stocks/list' %>
 
+<% else %>
+<!-- TradingView Widget BEGIN -->
+<script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
+<script type="text/javascript">
+new TradingView.widget({
+  "width": 1080,
+  "height": 610,
+  "symbol": "FX:SPX500",
+  "interval": "D",
+  "timezone": "Etc/UTC",
+  "theme": "White",
+  "style": "1",
+  "locale": "en",
+  "toolbar_bg": "#f1f3f6",
+  "allow_symbol_change": true,
+  "hideideas": true,
+  "show_popup_button": true,
+  "popup_width": "1000",
+  "popup_height": "650",
+  "no_referral_id": true
+});
+</script>
+<!-- TradingView Widget END -->
+        
+        <!-- TradingView Widget END -->
+
+
 <%end%>
+
+</div>

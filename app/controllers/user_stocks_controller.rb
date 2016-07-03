@@ -61,9 +61,9 @@ class UserStocksController < ApplicationController
   end
 
   def destroy
-    @user_stock.destroy_all
-    flash[:success] = "User Stock was removed from portfolio"
-    redirect_to my_portfolio_path
+    @user_stock_delete.destroy_all
+    flash[:info] = "#{@stock.name} was removed from portfolio"
+    redirect_to :back
   end
 
   private
@@ -72,7 +72,8 @@ class UserStocksController < ApplicationController
     end
 
     def delete_stock
-      @user_stock = UserStock.where(user_id: current_user.id, stock_id: params[:id])
+      @user_stock_delete = UserStock.where(user_id: current_user.id, stock_id: params[:id])
+      @stock = Stock.find(params[:id])
     end
 
 
