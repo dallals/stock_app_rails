@@ -62,7 +62,7 @@ class UserStocksController < ApplicationController
 
   def destroy
     @user_stock_delete.destroy_all
-    flash[:info] = "#{@stock.name} was removed from portfolio"
+    flash[:info] = "#{@stock.name} was removed from your portfolio"
     redirect_to :back
   end
 

@@ -160,9 +160,15 @@ new TradingView.MiniWidget({
 <!-- TradingView Widget BEGIN -->
 <div id="tv-medium-widget-fe3fe"></div>
 <script type="text/javascript">
+var stock = '<%= @stock.ticker %>'
+var stock_name = '<%= @stock.name %>'
 new TradingView.MediumWidget({
   "container_id": "tv-medium-widget-fe3fe",
   "symbols": [
+    [
+      stock_name,
+      stock
+    ],
     [
       "Apple",
       "AAPL "
