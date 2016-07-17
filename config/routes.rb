@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   resources :user_stocks, except: [:edit, :update]
   resources :users

@@ -12,7 +12,7 @@ default: &default
 development:
   <<: *default
   database: stockApp
-  username: 
+  username: ubuntu
 
   # deveplopment:
   # adapter: postgresql
@@ -32,4 +32,4 @@ production:
   <<: *default
   adapter: postgresql
   database: stockApp
-  username: 
+  username: ubuntu

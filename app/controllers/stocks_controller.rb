@@ -1,5 +1,5 @@
 class StocksController < ApplicationController
-before_action :show_stock, only: [:show]
+before_action :show_stock, only: [:show, :destroy]
 
 	def search
 		if params[:stock]
